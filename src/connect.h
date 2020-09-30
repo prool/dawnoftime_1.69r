@@ -14,9 +14,9 @@
 /**************************************************************************/
 //typedef unsigned int SOCKET;
 /**************************************************************************/
-#ifdef __CYGWIN__ // cygwin zlib support disabled due to compile errors
+
+// prool: MCCP is disabled. Delete this, if you want MCCP. Possible compile errors, f.e. in cygwin
 #	define DISABLE_MCCP
-#endif
 
 #ifndef DISABLE_MCCP // define this in your project to disable MCCP
 #	ifdef WIN32 

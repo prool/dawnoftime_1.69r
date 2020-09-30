@@ -4,12 +4,14 @@ PROF	= -g -O
 OBJDIR  = obj
 VPATH   = .:obj
 NOCRYPT	=
-C_FLAGS = -Wall $(PROF) $(NOCRYPT)
-L_FLAGS = $(PROF)
+C_FLAGS = -Wall -fpermissive -Wno-narrowing $(PROF) $(NOCRYPT)
+L_FLAGS = $(PROF) -lcrypt
 LIBS	= -lz
 
 #IMC2 - Comment out to disable IMC2 support
-IMC = 1
+
+# Uncomment this line, if you want IMC support. /prool
+#IMC = 1
 
 O_FILES = act_comm.o act_ente.o act_info.o act_move.o act_obj.o \
 	act_wiz2.o act_wiz.o aedit.o affects.o alias.o areas.o autostat.o \
@@ -34,7 +36,7 @@ O_FILES = act_comm.o act_ente.o act_info.o act_move.o act_obj.o \
 	tokens.o track.o trap.o update.o websrv.o whofmt.o who.o wizlist.o
 
 ifdef IMC
-   O_FILES := imc.o sha256.o $(O_FILES)
+   O_FILES := imc.o md5.o $(O_FILES)
    C_FLAGS := $(C_FLAGS) -DIMC
 endif
 

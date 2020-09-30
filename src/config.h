@@ -3,7 +3,7 @@
 #define config_h
 
 /* Define if you have strftime(). */
-/* #undef HAVE_STRFTIME */
+#define HAVE_STRFTIME 1
 
 /* Define if you have vprintf(). */
 #define HAVE_VPRINTF 1
